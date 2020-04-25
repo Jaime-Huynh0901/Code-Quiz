@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- Timer and Nav -->
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Leading Score</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#">Timer: <span class = 'timer'></span></a>
+        </li>
+      </ul>
+    
+    <!-- Welcome message Section -->
+    <div class="jumbotron welcome">
+        <h1 class="display-4">Coding Quiz Challenge</h1>
+        <p class="lead">Try to answer the following code-related questions within the time limit. 
+            Keep in mind that incorrect answers will penalize your scoretime by ten seconds</p>
+        <a class="btn btn-primary btn-lg btn-start" href="#" role="button">Start Quiz</a>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class = "quiz d-none">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h2 class="display-4 question"></h2>
+            </div>
+        </div>
+
+        <div class="list-group multiChoice">
+        </div>
+
+        <hr>
+        <div class = "comment text-center"><h3></h3></div>
+    </div>
+
+    <!-- Save Score, Name Input Section -->
+    <div class = "savedScore d-none">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">All done!</h1>
+                <p class="lead">Your final score is <span class = "score"></span></p>
+                <div class="input-group mb-3 inputForm">
+                    <input type="text" class="form-control nameInput" placeholder="Enter name" aria-label="Enter Name" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-secondary submit" type="button" id="button-addon2">Submit</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- Scoreboard Section -->
+    <div class = "scoreBoard d-none">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Highscores</h1>
+              <ol class = "scoreList list-group">
+
+              </ol>
+              <button type="button" class="btn btn-primary mr-5 goBack">Go Back</button>
+              <button type="button" class="btn btn-danger ml-5 clear">Clear HighScores</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
