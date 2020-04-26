@@ -1,6 +1,8 @@
 # Code-Quiz
 Timed code quiz with multiple-choice question
 
+Design with Mobile first approach
+
 Click Start button to start the quiz.
 
 Everyone will have 75 second to complete 5 question.

@@ -43,8 +43,9 @@ var startBtn = $(".btn-start");  //select the start button
 var storedMyScore = JSON.parse(localStorage.getItem('myScore'));
 if(storedMyScore !== null) {
     myScore = storedMyScore;
-
 }
+
+$('.theScoreList').text(myScore);
 
 // Retrieve the highScore from local Storage
 var storedHighScore = JSON.parse(localStorage.getItem('highScore'));
@@ -137,14 +138,26 @@ function setTime() {
     },1000);
 }
 
-// ---Enter name and Submit---//
+// //---Enter name and Submit not---//
+// $('.submit').on('click', () => {
+//     // var myScore = `${$(".nameInput").val()} - ${highScore}`;
+//     myScore = `${$(".nameInput").val()} - ${highScore}`;
+//     var li = $('<li>');
+//     li.text(myScore);
+//     li.addClass("bg-success list-group-item text-white mb-3");
+//     $('.scoreList').append(li);
+//     $(".savedScore").addClass("d-none");
+//     $(".scoreBoard").removeClass("d-none");
+//     $('.leadingScore').removeClass("d-none");
+//     localStorage.setItem('myScore', JSON.stringify(myScore));
+
+// });
+
+//---Enter name and Submit---//
 $('.submit').on('click', () => {
     // var myScore = `${$(".nameInput").val()} - ${highScore}`;
     myScore = `${$(".nameInput").val()} - ${highScore}`;
-    var li = $('<li>');
-    li.text(myScore);
-    li.addClass("bg-success list-group-item text-white mb-3");
-    $('.scoreList').append(li);
+    $('.theScoreList').text(myScore);
     $(".savedScore").addClass("d-none");
     $(".scoreBoard").removeClass("d-none");
     $('.leadingScore').removeClass("d-none");
@@ -152,9 +165,10 @@ $('.submit').on('click', () => {
 
 });
 
+
 //---Clear scoreBoard---//
 $('.clear').on('click', () => {
-    $('.scoreList').empty();
+    $('.theScoreList').empty();
 });
 
 //---Go Back or Start Game again---//
