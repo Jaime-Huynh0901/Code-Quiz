@@ -59,6 +59,7 @@ startBtn.on('click', () => {
     $(".quiz").removeClass("d-none");
     setTime();
     renderQuiz();
+    $('.leadingScore').addClass("d-none");
 });
 
 // Choose multiple choice answer for each quiz question
@@ -146,6 +147,7 @@ $('.submit').on('click', () => {
     $('.scoreList').append(li);
     $(".savedScore").addClass("d-none");
     $(".scoreBoard").removeClass("d-none");
+    $('.leadingScore').removeClass("d-none");
     localStorage.setItem('myScore', JSON.stringify(myScore));
 
 });
@@ -159,6 +161,7 @@ $('.clear').on('click', () => {
 $('.goBack').on('click', () => {
     questIndex = 0;
     timer = 75;
+    $('h3').text("");
     $(".scoreBoard").addClass("d-none");
     $(".welcome").removeClass("d-none");
 });
