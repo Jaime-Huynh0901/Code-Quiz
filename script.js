@@ -35,12 +35,21 @@ var timer = 75;
 
 var highScore = 0;
 
+var myScore = '';
+
 var startBtn = $(".btn-start");  //select the start button
 
+
+var storedMyScore = JSON.parse(localStorage.getItem('myScore'));
+if(storedMyScore !== null) {
+    myScore = storedMyScore;
+
+}
+
 // Retrieve the highScore from local Storage
-var savedHighScore = JSON.parse(localStorage.getItem('highScore'));
-if (savedHighScore !== null) {
-    highScore = savedHighScore;
+var storedHighScore = JSON.parse(localStorage.getItem('highScore'));
+if (storedHighScore !== null) {
+    highScore = storedHighScore;
 }
 
 
@@ -129,13 +138,15 @@ function setTime() {
 
 // ---Enter name and Submit---//
 $('.submit').on('click', () => {
-    var myScore = `${$(".nameInput").val()} - ${highScore}`;
+    // var myScore = `${$(".nameInput").val()} - ${highScore}`;
+    myScore = `${$(".nameInput").val()} - ${highScore}`;
     var li = $('<li>');
     li.text(myScore);
     li.addClass("bg-success list-group-item text-white mb-3");
     $('.scoreList').append(li);
     $(".savedScore").addClass("d-none");
     $(".scoreBoard").removeClass("d-none");
+    localStorage.setItem('myScore', JSON.stringify(myScore));
 
 });
 
@@ -151,3 +162,8 @@ $('.goBack').on('click', () => {
     $(".scoreBoard").addClass("d-none");
     $(".welcome").removeClass("d-none");
 });
+
+$('.leadingScore').on('click', () => {
+    $(".scoreBoard").removeClass("d-none");
+    $(".welcome").addClass("d-none");
+})
